@@ -15,10 +15,12 @@ namespace PvZ.NewEntities.AI
 
         public override void DoIt()
         {
-            AIState = "None";
+            AIState = "None"; // Khởi tạo trạng thái AI là "None"
+
+            // Kiểm tra xem có zombie nào cùng hàng với cây không
             if (Global.Entities.Find(x => x.GetType() == typeof(ZombieEntity) && Coord.YtoRow((int)x.CorrectedY) == Coord.YtoRow((int)AssociatedGameObject.CorrectedY)) != null)
             {
-                AIState = "Shooting";
+                AIState = "Shooting"; // Nếu có zombie, thay đổi trạng thái AI thành "Shooting"
             }
         }
     }

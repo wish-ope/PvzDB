@@ -9,77 +9,71 @@ namespace PvZ
 {
     class TimeMeasure
     {
-        private Stopwatch Watch;  // chronomètre servant à mesure le temps
-
+        private Stopwatch Watch;  // Đồng hồ bấm giờ dùng để đo thời gian
 
         public TimeMeasure()
         {
-            Watch = new Stopwatch();
-            Watch.Start();
-            TimeStampStart = Watch.ElapsedMilliseconds;
+            Watch = new Stopwatch(); // Khởi tạo đồng hồ
+            Watch.Start();           // Bắt đầu đồng hồ
+            TimeStampStart = Watch.ElapsedMilliseconds; // Lưu timestamp bắt đầu
         }
 
-        private  long LastTick;      // timestamp
-        private long  TimeStampStart;
+        private long LastTick;      // Thời gian đánh dấu
+        private long TimeStampStart; // Timestamp khởi đầu
 
-        private  long secfps;        // seconde actuelle pour le comptage fps
-        private  int  last_fps = 0;  // estimation fps 
-        private  int countfps =  0;  // compte nb affichage dans la seconde actuelle
-        private  float dt;           // delta temps depuis le dernier calcul  
-        private long lastTime = 0;
+        private long secfps;        // Giây hiện tại để đếm FPS
+        private int last_fps = 0;  // Ước lượng FPS
+        private int countfps = 0;  // Đếm số lần hiển thị trong giây hiện tại
+        private float dt;           // Delta time từ lần tính toán cuối
+        private long lastTime = 0;  // Thời gian của lần cập nhật cuối
 
-        // calcul des FPS
-
+        // Lấy số FPS hiện tại
         public int GetFPS() { return last_fps; }
 
+        // Ghi lại thời gian hoàn thành vẽ
         public void PaintFinished()
         {
-            // calcule les fps
+            // Tính toán FPS
             long T = Watch.ElapsedMilliseconds;
 
-            if ( T / 1000 == secfps )
-                countfps++;  // compte les images durant cette seconde
+            if (T / 1000 == secfps)
+                countfps++;  // Đếm số khung hình trong giây
             else
             {
-                last_fps = countfps;
-                countfps = 1;
-                secfps++;
+                last_fps = countfps; // Cập nhật số FPS cuối
+                countfps = 1;        // Đặt lại bộ đếm cho giây mới
+                secfps++;            // Chuyển sang giây tiếp theo
             }
         }
 
-        //  Temps écoulé depuis le début de la partie en seconde
-
+        // Lấy thời gian đã trôi qua kể từ khi bắt đầu trò chơi (định dạng chuỗi)
         public String GetStringTime()
         {
             TimeSpan ts = Watch.Elapsed;
             return String.Format("TIME : {0:00}:{1:00}:{2:000}", ts.Minutes, ts.Seconds, ts.Milliseconds);
         }
 
+        // Lấy thời gian đã trôi qua kể từ khi bắt đầu trò chơi (định dạng số thực)
         public float GetTime()
         {
             long T = Watch.ElapsedMilliseconds;
             long Delta = T - TimeStampStart;
-            return Delta * 0.001f;
+            return Delta * 0.001f; // Chuyển đổi từ mili giây sang giây
         }
+
+        // Lấy delta time từ lần cập nhật trước
         public double GetDeltaTime()
         {
-            // lets do 5 ms update to avoid quantum effects
-            //int maxDelta = 5;
-
-            // get time with millisecond precision
+            // Nhận thời gian với độ chính xác mili giây
             long nt = Watch.ElapsedMilliseconds;
-            // compute ellapsed time since last call to update
+
+            // Tính toán thời gian đã trôi qua từ lần gọi cập nhật trước
             double deltaT = (nt - lastTime);
 
-            //for (; deltaT >= maxDelta; deltaT -= maxDelta)
-            //    game.Update(maxDelta / 1000.0);
-
-            //game.Update(deltaT / 1000.0);
-
-            // remember the time of this update
+            // Ghi nhớ thời gian của lần cập nhật này
             lastTime = nt;
 
-            return deltaT;
+            return deltaT; // Trả về delta time
         }
     }
 }

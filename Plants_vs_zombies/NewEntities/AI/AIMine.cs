@@ -14,19 +14,20 @@ namespace PvZ.NewEntities.AI
 
         public AIMine(GameObject go) : base(go)
         {
-            begin = Global.Round;
+            begin = Global.Round; // Ghi nhận vòng chơi bắt đầu
         }
 
         public override void DoIt()
         {
+            // Kiểm tra thời gian kích hoạt mìn
             if (Global.Round == (begin + 250))
             {
+                // Thay đổi hình ảnh và kích hoạt AIActiveMine
                 AssociatedGameObject.GetComponent<CDrawable>().cycle = 1;
-                AssociatedGameObject.GetComponent<CDrawable>().HitBox = new Size(24,24);
-
-                AssociatedGameObject.offsetX += 18;
+                AssociatedGameObject.GetComponent<CDrawable>().HitBox = new Size(24, 24);
+                AssociatedGameObject.offsetX += 18; // Cập nhật vị trí mìn
                 AssociatedGameObject.offsetY += 5;
-                AssociatedGameObject.AI = new AIActiveMine(AssociatedGameObject);
+                AssociatedGameObject.AI = new AIActiveMine(AssociatedGameObject); // Gán AI mới
             }
         }
     }

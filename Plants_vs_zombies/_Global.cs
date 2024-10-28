@@ -7,28 +7,30 @@ namespace PvZ
 {
     class Global
     {
+        static public SpriteManager Sprites;    // Quản lý sprites trong game
+        static public Graphics Ecran;           // Đối tượng Graphics dùng để vẽ lên màn hình
+        static public int Height;               // Chiều cao của vùng hiển thị
+        static public int dollar = 2000;        // Số tiền của người chơi
+        static public int Round = 1;            // Đếm số vòng
+        static public double DeltaTime;          // Thời gian trôi qua giữa các khung hình
+        static public bool DrawHitBox { get; set; } // Có vẽ hitbox không
+        public static bool DisplayHP { get; set; } // Có hiển thị HP không
 
-        static public SpriteManager Sprites;    // gestionnaire de sprites
-        static public Graphics Ecran;           // utilisé pour les drawscreen
-        static public int Height;               // hauteur de la zone d'affichage
-        static public int dollar = 2000; // 2000;         // money du joueur
-        static public int Round = 1;            // compteur de tour
-        static public double DeltaTime;
-        static public bool DrawHitBox { get; set; } // Dessiner la hitbox
-        public static bool DisplayHP { get; set; }
+        // Biến để lưu creature đã chọn
+        static public Creature Button;            // Creature được chọn
 
-
-        /////////////////////////////////////////////////////////////////////
-
-        static public Creature Button;            // indique la creature selectionnée
-
+        // Trạng thái của trò chơi
         static public GameState stateofthegame;
-        public enum GameState { Playing, Loose, Win }
+        public enum GameState { Playing, Loose, Win } // Các trạng thái của trò chơi
 
-        public enum Creature { Zombie, ZombieCone, ZombieSot, Tournesol, PistoPois,
-            Mine, Noix, DoublePistoPois, PistoGel, Cerises, Canon, Shovel };
+        // Các loại creature có thể chọn
+        public enum Creature
+        {
+            Zombie, ZombieCone, ZombieSot, Tournesol, PistoPois,
+            Mine, Noix, DoublePistoPois, PistoGel, Cerises, Canon, Shovel
+        };
 
-
+        // Chi phí của mỗi loại plant
         static public Dictionary<Creature, int> SunCosts = new Dictionary<Creature, int>()
         {
             { Creature.PistoPois, 100 },
@@ -40,6 +42,7 @@ namespace PvZ
             { Creature.Cerises, 150 }
         };
 
+        // Thời gian cooldown cho mỗi loại plant
         static public Dictionary<Creature, int> CoolDown = new Dictionary<Creature, int>()
         {
             { Creature.PistoPois, 40 },
@@ -51,15 +54,14 @@ namespace PvZ
             { Creature.Cerises, 300 }
         };
 
+        static public List<GameObject> Entities = new List<GameObject>(); // Danh sách các đối tượng trong game
 
-        static public List<GameObject> Entities = new List<GameObject>();
+        static public Dictionary<Global.Creature, int> plantsCooldown = new Dictionary<Creature, int>(); // Thời gian cooldown cho các plant
 
-        static public Dictionary<Global.Creature, int> plantsCooldown = new Dictionary<Creature, int>();
-
-        // retour un nombre aléatoire entre 0 et n-1
+        // Khởi tạo đối tượng Random để sinh số ngẫu nhiên
         static private Random randNum = new Random();
 
-        public static int Random(int min, int max) { return randNum.Next(min , max + 1); }
-
+        // Phương thức trả về số ngẫu nhiên trong khoảng từ min đến max
+        public static int Random(int min, int max) { return randNum.Next(min, max + 1); }
     }
 }

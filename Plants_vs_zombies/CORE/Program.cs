@@ -8,7 +8,7 @@ namespace PvZ
     static class Program
     {
         /// <summary>
-        /// Point d'entrée principal de l'application.
+        /// Điểm nhập chính của ứng dụng.
         /// </summary>
         [STAThread]
         static void Main()
