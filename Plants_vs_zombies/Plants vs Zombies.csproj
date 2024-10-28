@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9E761BF-AC8C-49C0-A888-5B773B21E18B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PvZ</RootNamespace>
+    <AssemblyName>Populous</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NewEntities\AI\AIBase.cs" />
+    <Compile Include="NewEntities\AI\AICherry.cs" />
+    <Compile Include="NewEntities\AI\AIActiveMine.cs" />
+    <Compile Include="NewEntities\AI\AIMine.cs" />
+    <Compile Include="NewEntities\AI\AINut.cs" />
+    <Compile Include="NewEntities\AI\AIMeower.cs" />
+    <Compile Include="NewEntities\AI\AISunFlower.cs" />
+    <Compile Include="NewEntities\AI\AISun.cs" />
+    <Compile Include="NewEntities\AI\AIPea.cs" />
+    <Compile Include="NewEntities\AI\AISpawner.cs" />
+    <Compile Include="NewEntities\AI\AIPlant.cs" />
+    <Compile Include="NewEntities\AI\AIZombie.cs" />
+    <Compile Include="NewEntities\Components\CDisappear.cs" />
+    <Compile Include="NewEntities\Components\CClickable.cs" />
+    <Compile Include="NewEntities\PeaEntity.cs" />
+    <Compile Include="NewEntities\Components\CShootable.cs" />
+    <Compile Include="NewEntities\DebugMode.cs" />
+    <Compile Include="NewEntities\PlantEntity.cs" />
+    <Compile Include="NewEntities\Components\CDrawable.cs" />
+    <Compile Include="NewEntities\Components\CHealth.cs" />
+    <Compile Include="NewEntities\Components\Component.cs" />
+    <Compile Include="NewEntities\GameObject.cs" />
+    <Compile Include="NewEntities\Components\CMoveable.cs" />
+    <Compile Include="NewEntities\SpawnerEntity.cs" />
+    <Compile Include="NewEntities\MeowerEntity.cs" />
+    <Compile Include="NewEntities\SunEntity.cs" />
+    <Compile Include="NewEntities\ZombieEntity.cs" />
+    <Compile Include="CORE\_SoundManager.cs" />
+    <Compile Include="_Coord.cs" />
+    <Compile Include="MouseClick.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_Global.cs" />
+    <Compile Include="MainLoop.cs" />
+    <Compile Include="_Sprite.cs" />
+    <Compile Include="_SpriteManager.cs" />
+    <Compile Include="_Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_Form1.Designer.cs">
+      <DependentUpon>_Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_TimeMeasure.cs" />
+    <EmbeddedResource Include="_Form1.resx">
+      <DependentUpon>_Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_canon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_pois.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_zombie.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\mine_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\mine_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\plante_gel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\plante_pois.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\plante_soleil.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\soleil.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\sot_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\sot_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\sot_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\tir_gel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\tir_pois.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\tondeuse.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\zombie_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\zombie_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\zombie_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\boulet_canon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\canon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\cerises.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\cone_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\cone_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\cone_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\decor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\gel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_cerises.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_fleur.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_gel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_mine.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icone_patate.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_pois_double.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\noix_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\noix_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\noix_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\plante_pois_double.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\zombie_dead.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_zombie_sot.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\zombie_cone.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\dollar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\zombie_1_touche.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\zombie_2_touche.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\zombie_3_touche.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprites\icone_noix.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Musics\grasswalk.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Sfx\sand_picking.wav" />
+    <Content Include="Resources\Sfx\seed_planting.wav" />
+    <Content Include="Resources\Sfx\sun_picking.wav" />
+    <None Include="Resources\Sprites\ZombiesWon.jpg" />
+    <None Include="Resources\ZombieWon.bmp" />
+    <None Include="Resources\Sprites\shovel.bmp" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
